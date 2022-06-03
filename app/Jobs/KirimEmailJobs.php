@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\KirimEmail;
-use App\Models\Siswa;
+use App\Siswa;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;

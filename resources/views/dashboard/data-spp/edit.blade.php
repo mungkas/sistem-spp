@@ -22,6 +22,30 @@
                               <input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ $edit->tahun }}">
                               <span class="text-danger">@error('tahun') {{ $message }} @enderror</span>
                            </div>
+
+                        <div class="input-group mb-3">									
+                        <div class="input-group-prepend">										
+                           <label class="input-group-text">										 	
+                              Bulan	
+                           </label>
+                        </div>
+                        <select class="custom-select @error('bulan') is-invalid @enderror" name="bulan">								
+                              <option value="">Silahkan Pilih</option>											
+                                 <option value="januari" {{ $edit->bulan == 'januari' ? 'selected' : '' }}>Januari</option>
+                                 <option value="februari" {{ $edit->bulan == 'februari' ? 'selected' : '' }}>Februari</option>
+                                 <option value="maret" {{ $edit->bulan == 'maret' ? 'selected' : '' }}>Maret</option>
+                                 <option value="april" {{ $edit->bulan == 'april' ? 'selected' : '' }}>April</option>
+                                 <option value="mei" {{ $edit->bulan == 'mei' ? 'selected' : '' }}>Mei</option>
+                                 <option value="juni" {{ $edit->bulan == 'juni' ? 'selected' : '' }}>Juni</option>
+                                 <option value="juli" {{ $edit->bulan == 'juli' ? 'selected' : '' }}>Juli</option>
+                                 <option value="agustus" {{ $edit->bulan == 'agustus' ? 'selected' : '' }}>Agustus</option>
+                                 <option value="september" {{ $edit->bulan == 'september' ? 'selected' : '' }}>September</option>
+                                 <option value="oktober" {{ $edit->bulan == 'oktober' ? 'selected' : '' }}>Oktober</option>
+                                 <option value="november" {{ $edit->bulan == 'november' ? 'selected' : '' }}>November</option>
+                                 <option value="desember" {{ $edit->bulan == 'desember' ? 'selected' : '' }}>Desember</option>
+                       </select>
+                     </div>
+                     <span class="text-danger">@error('bulan') {{ $message }} @enderror</span>
                            
                            <div class="form-group">
                               <label>Nominal</label>

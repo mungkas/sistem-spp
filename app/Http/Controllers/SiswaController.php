@@ -9,6 +9,8 @@ use App\Kelas;
 use App\Spp;
 use App\Pembayaran;
 use Alert;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\KirimEmail;
 
 class SiswaController extends Controller
 {

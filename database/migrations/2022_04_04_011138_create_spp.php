@@ -16,6 +16,7 @@ class CreateSpp extends Migration
         Schema::create('spp', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('tahun');
+            $table->string('bulan', 20);
             $table->integer('nominal');
             $table->timestamps();
         });

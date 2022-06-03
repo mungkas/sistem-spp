@@ -22,6 +22,31 @@
                               <span class="text-danger">@error('tahun') {{ $message }} @enderror</span>
                            </div>
                            
+                           <div class="input-group mb-3">									
+                        <div class="input-group-prepend">										
+                           <label class="input-group-text">										 	
+                              Bulan	
+                           </label>
+                        </div>
+                        <select class="custom-select @error('bulan') is-invalid @enderror" name="bulan">
+                           									
+                              <option value="">Pilih Bulan</option>											
+                                 <option value="januari">Januari</option>
+                                 <option value="februari">Februari</option>
+                                 <option value="maret">Maret</option>
+                                 <option value="april">April</option>
+                                 <option value="mei">Mei</option>
+                                 <option value="juni">Juni</option>
+                                 <option value="juli">Juli</option>
+                                 <option value="agustus">Agustus</option>
+                                 <option value="september">September</option>
+                                 <option value="oktober">Oktober</option>
+                                 <option value="november">November</option>
+                                 <option value="desember">Desember</option>
+                       </select>
+                     </div>
+                     <span class="text-danger">@error('bulan') {{ $message }} @enderror</span>
+                           
                            <div class="form-group">
                               <label>Nominal</label>
                               <input type="text" class="form-control @error('nominal') is-invalid @enderror" name="nominal" value="{{ old('nominal') }}">
@@ -50,6 +75,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">TAHUN</th>
+                                            <th scope="col">BULAN</th>
 								    <th scope="col">NOMINAL</th>
                                             <th scope="col">DIBUAT</th>
 								    <th scope="col"></th>                                        
@@ -63,6 +89,7 @@
                                         <tr>					    
                                             <th scope="row">{{ $i }}</th>
                                             <td>{{ $value->tahun }}</td>
+                                            <td>{{ $value->bulan }}</td>
 								    <td>{{ $value->nominal }}</td>
                                             <td>{{ $value->created_at->format('d M, Y') }}</td>
 					

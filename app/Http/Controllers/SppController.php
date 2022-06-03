@@ -60,12 +60,14 @@ class SppController extends Controller
          
         $validasi = $request->validate([
             'tahun' => 'required|min:4|max:4',
+            'bulan' => 'required',
             'nominal' => 'required|integer',
         ], $messages);
       
        if($validasi) :
            $store = Spp::create([
                'tahun' => $request->tahun,
+               'bulan' => $request->bulan,
                'nominal' => $request->nominal,
            ]);
          
@@ -118,6 +120,7 @@ class SppController extends Controller
         if($update = Spp::find($id)) :         
                $stat = $update->update([
                   'tahun' => $req->tahun,
+                  'bulan' => $req->bulan,
                   'nominal' => $req->nominal
                ]);
                if($stat) :
