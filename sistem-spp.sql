@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2022 at 09:20 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Jun 25, 2022 at 04:58 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -56,7 +55,7 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id`, `nama_kelas`, `jenjang`, `created_at`, `updated_at`) VALUES
-(1, 'X1', 'SMA', '2022-04-19 21:46:26', '2022-04-19 21:46:26');
+(1, 'X', 'SMA', '2022-06-22 03:13:58', '2022-06-22 03:13:58');
 
 -- --------------------------------------------------------
 
@@ -81,7 +80,29 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2022_04_04_011138_create_spp', 1),
 (5, '2022_04_04_011302_create_kelas', 1),
 (6, '2022_04_04_011347_create_siswa', 1),
-(7, '2022_04_04_011511_create_pembayaran', 1);
+(7, '2022_04_04_011511_create_pembayaran', 1),
+(8, '2022_06_25_114546_create_notif_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notif`
+--
+
+CREATE TABLE `notif` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subjek` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `notif`
+--
+
+INSERT INTO `notif` (`id`, `subjek`, `body`, `created_at`, `updated_at`) VALUES
+(1, 'tes', 'mencoba ajaa yahh', '2022-06-25 07:29:49', '2022-06-25 07:29:49');
 
 -- --------------------------------------------------------
 
@@ -111,13 +132,6 @@ CREATE TABLE `pembayaran` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `pembayaran`
---
-
-INSERT INTO `pembayaran` (`id`, `id_petugas`, `id_siswa`, `spp_bulan`, `jumlah_bayar`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'april', 1500000, '2022-04-19 21:57:29', '2022-04-19 21:58:39');
-
 -- --------------------------------------------------------
 
 --
@@ -138,13 +152,6 @@ CREATE TABLE `siswa` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `siswa`
---
-
-INSERT INTO `siswa` (`id`, `nisn`, `nis`, `nama`, `id_kelas`, `alamat`, `email`, `nomor_telp`, `id_spp`, `created_at`, `updated_at`) VALUES
-(1, '155410111', '10111', 'Nur Hidayat Pamungkas', 1, 'BELITUNG', 'nurhida10111@gmail.com', '081929721749', 1, '2022-04-19 21:52:58', '2022-04-19 21:52:58');
-
 -- --------------------------------------------------------
 
 --
@@ -154,6 +161,7 @@ INSERT INTO `siswa` (`id`, `nisn`, `nis`, `nama`, `id_kelas`, `alamat`, `email`,
 CREATE TABLE `spp` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `tahun` int(11) NOT NULL,
+  `bulan` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nominal` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -163,8 +171,8 @@ CREATE TABLE `spp` (
 -- Dumping data for table `spp`
 --
 
-INSERT INTO `spp` (`id`, `tahun`, `nominal`, `created_at`, `updated_at`) VALUES
-(1, 2022, 1500000, '2022-04-19 21:46:51', '2022-04-19 21:46:51');
+INSERT INTO `spp` (`id`, `tahun`, `bulan`, `nominal`, `created_at`, `updated_at`) VALUES
+(1, 2022, 'juni', 500000, '2022-06-22 04:41:17', '2022-06-22 04:41:17');
 
 -- --------------------------------------------------------
 
@@ -189,8 +197,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@spp.com', NULL, '$2y$10$fDd5WHRJ5L5jzKtbD7ejz.QUcFS3zI247lSQDCcJVknDGE/nPC.3i', 'admin', NULL, '2022-04-19 21:03:37', '2022-04-19 21:03:37'),
-(2, 'petugas', 'petugas@spp.com', NULL, '$2y$10$duetsbywXTkZX2GA1JpDY.ddbDgmqovDt0dB3nyO67cBr6TlMymvm', 'petugas', NULL, '2022-04-19 21:03:37', '2022-04-19 21:03:37');
+(1, 'admin', 'admin@spp.com', NULL, '$2y$10$hUCMoOH9e7UkOGxj5vcA7ut8XoW6LtCetK8/84vu4gyRoyfxpdJtq', 'admin', NULL, '2022-06-22 00:53:50', '2022-06-22 00:53:50'),
+(2, 'petugas', 'petugas@spp.com', NULL, '$2y$10$BbDOuImJHLoP0IXBgE385.kIpDoDKogCBJxq5ZkbW1T7ldS0VMvQ2', 'petugas', NULL, '2022-06-22 00:53:50', '2022-06-22 00:53:50');
 
 --
 -- Indexes for dumped tables
@@ -212,6 +220,12 @@ ALTER TABLE `kelas`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notif`
+--
+ALTER TABLE `notif`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -270,19 +284,25 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `notif`
+--
+ALTER TABLE `notif`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `spp`
