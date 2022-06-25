@@ -110,14 +110,14 @@
    
    <!-- header -->
    <div class="text-center">
-      <img src="{{ public_path('img/West_Java_coa.png') }}" class="img" alt="logo.png" width="90">
+      <img src="{{ url('assets/images/users/d3.jpg') }}" class="img" width="90">
       <div style="margin-left:6rem;">
          <span class="text-header text-bold text-danger">
-            PEMERINTAH DAERAH PROVINSI JAWA BARAT <br> DINAS PENDIDIKAN <br>
-               <span class="size2">CABANG DINAS PENDIDIKAN WILAYAH IX</span> <br> 
-               SEKOLAH MENENGAH KEJURUAN NEGERI 1 TALAGA <br>
+            SMANAJEMEN <br> CODE <br>
+               <span class="size2">CABANG BELITUNG</span> <br> 
+               SEKOLAH MENENGAH ATAS BELITUNG <br>
          </span>
-         <span class="text-desc">Jalan Sekolah Nomor 20 Telepon (0233) 319238<br>FAX (0233) 319238 Website <span class="underline">www.smkn1talaga-mjl.net</span> - Email <span class="underline">sekolah@smkn1talaga-mjl.net</span> <br> Desa Talaga Kulon Kec. Talaga Kab. Majalengka 45463 <br> </span>
+         <span class="text-desc">Jalan Membalong Telepon (0233) 319238<br>FAX (0233) 319238 Website <span class="underline">www.smkn1talaga-mjl.net</span> - Email <span class="underline">sekolah@smkn1talaga-mjl.net</span> <br> Desa Tanjungpandan <br> </span>
       </div>    
       </div>
    <div>

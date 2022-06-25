@@ -183,9 +183,9 @@
 					     </li>
 				         @endif  
 
-                         @if(auth()->user()->level == 'admin')
+                            @if(auth()->user()->level == 'admin')
 						<li class="sidebar-item">
-							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/') }}" aria-expanded="false">
+							<a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('dashboard/notif') }}" aria-expanded="false">
 								<i class="mdi mdi-file-document"></i>
 									<span class="hide-menu">Pemberitahuan</span>
 							</a>
